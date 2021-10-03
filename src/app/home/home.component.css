@@ -1,0 +1,32 @@
+table {
+  width: 50%;
+  height: 600px;
+  align-content: center;
+  margin-left: 20%;
+  padding-top: 20px;
+}
+table th {
+  text-align: center;
+}
+table td{
+  cursor: pointer;
+  text-align: center;
+}
+
+.selectedJoke{
+  width:94%;
+  padding-top: 16px;
+  margin: 0 auto;
+}
+.suggestedJokes{
+  margin-top: 20px;
+}
+
+.matCardsuggestedJoke{
+  margin-right: 20px;
+}
+
+.modalStyle{
+  background: beige;
+}
+

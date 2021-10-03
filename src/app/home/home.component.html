@@ -1,0 +1,102 @@
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="data" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> Id</th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="category">
+    <th mat-header-cell *matHeaderCellDef> Category</th>
+    <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="type">
+    <th mat-header-cell *matHeaderCellDef> Type</th>
+    <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row (click)="selectRow(mytemplate, row)" *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</div>
+
+<ng-template #mytemplate>
+  <div class="modalStyle">
+
+    <div class="selectedJoke">
+      <mat-card>
+        <mat-card-content>
+          <div class="header">
+            <h2>Selected Joke</h2>
+          </div>
+          <mat-label>
+            joke: {{selectedJoke.id}}
+          </mat-label>
+          <br>
+          <mat-label>
+            category: {{selectedJoke.category}}
+          </mat-label>
+          <br>
+          <mat-label>
+            setup: {{selectedJoke.setup}}
+          </mat-label>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="suggestedJokes">
+      <mat-grid-list cols="3" rowHeight="300px">
+        <mat-grid-tile *ngFor="let suggested of suggestedJokes">
+
+          <mat-card class="matCardsuggestedJoke">
+            <mat-card-content>
+              <div class="header">
+                <h2>Suggested Joke</h2>
+              </div>
+              <mat-label>
+                joke: {{suggested.id}}
+              </mat-label>
+              <br>
+              <mat-label>
+                category: {{suggested.category}}
+              </mat-label>
+              <br>
+              <mat-label>
+                setup: {{suggested.setup}}
+              </mat-label>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+
+      </mat-grid-list>
+    </div>
+
+    <!--  <div class="suggestedJokes" *ngFor="let suggested of suggestedJokes">-->
+    <!--    <mat-card class="matCardsuggestedJoke">-->
+    <!--      <mat-card-content>-->
+    <!--        <div class="header">-->
+    <!--          <h2>Suggested Joke</h2>-->
+    <!--        </div>-->
+    <!--        <mat-label>-->
+    <!--          joke: {{suggested.id}}-->
+    <!--        </mat-label>-->
+    <!--        <br>-->
+    <!--        <mat-label>-->
+    <!--          category: {{suggested.category}}-->
+    <!--        </mat-label>-->
+    <!--        <br>-->
+    <!--        <mat-label>-->
+    <!--          setup: {{suggested.setup}}-->
+    <!--        </mat-label>-->
+    <!--      </mat-card-content>-->
+    <!--    </mat-card>    -->
+    <!--  </div>-->
+
+
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Close</button>
+    </mat-dialog-actions>
+  </div>
+</ng-template>
